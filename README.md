@@ -20,8 +20,8 @@ Create 3D Pacman. Why? Because those are roots of gaming.
 
 ### Assets
 
-- [Player](https://bloody-mojo.itch.io/3d-pac-man)
-- [Enemy](https://hakora.itch.io/pac-man-3d-full)
+- [Player](https://sketchfab.com/3d-models/pacman-animated-e5e8dfb614da4fa69182f252fa4274a8)
+- [Enemy](https://sketchfab.com/3d-models/inky-animated-7c2bb227295b419aa6ee13dc56dc49cb)
 - [Coins](https://sketchfab.com/3d-models/bitcoin-gold-coin-aa32084f0d4043eda8b044668e53a062)
 - Pickups:
     1. [Wood](https://sketchfab.com/3d-models/mystery-box-0c4baee1767749a08125a003e8b635f8)
