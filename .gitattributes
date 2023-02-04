@@ -1,2 +1,0 @@
-Pacman3D/assets/* filter=lfs diff=lfs merge=lfs -text
-Pacman3D/assets/** filter=lfs diff=lfs merge=lfs -text
