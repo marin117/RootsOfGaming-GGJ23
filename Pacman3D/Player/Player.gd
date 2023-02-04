@@ -1,6 +1,6 @@
 extends KinematicBody
 
-var GRAVITY = 9.81
+var GRAVITY = -9.81
 
 var speed = 8
 var velocity = Vector3.ZERO
