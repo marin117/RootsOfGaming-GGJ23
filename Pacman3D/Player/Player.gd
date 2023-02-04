@@ -11,9 +11,11 @@ var moving_enabled = true
 var camGlobal
 
 func _ready():
+
 	pass
 
 func _physics_process(delta):
+	handle_collision()
 	move_and_rotate(delta)
 	#$Pivot/CameraFollow.current = false
 
@@ -59,3 +61,11 @@ func move_and_rotate(delta):
 func switch_movement(enabled):
 	moving_enabled = enabled
 	$Pivot/CameraFollow.current = moving_enabled
+	
+func handle_collision():
+	for i in range(get_slide_count()):
+		var obj = get_slide_collision(i)
+		if obj.collider.is_in_group("coins"):
+			var coin = obj.collider
+
+			coin.pick_up()

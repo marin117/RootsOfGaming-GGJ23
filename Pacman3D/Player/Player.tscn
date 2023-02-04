@@ -20,11 +20,11 @@ tracks/0/enabled = true
 tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 0.02, 0.02, 0.02, 0.5, 1, 0, 0, 0, 0, 0, 0, 1, 0.02, 0.015, 0.02, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0.02, 0.02, 0.02 )
 
 [node name="Player" type="KinematicBody"]
-collision_layer = 2
+collision_mask = 6
 script = ExtResource( 2 )
 
 [node name="Model" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.02, 0, 0, 0, 0.0178452, 0, 0, 0, 0.02, 0, 0, 0 )
+transform = Transform( 0.02, 0, 0, 0, 0.0162532, 0, 0, 0, 0.02, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94047, 0 )

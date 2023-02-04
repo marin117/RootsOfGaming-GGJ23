@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Coin/Bitcoin.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Coin/Coin.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.159468, 0.159634, 0.029278 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Float"
+length = 1.5
+loop = true
+tracks/0/type = "transform"
+tracks/0/path = NodePath("Bitcoin")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 1, 0, 0, 0, 0, 1, 10, 10, 10, 0.7, 1, 0, 1.5, 0, 0, 0, 0, 1, 10, 10, 10, 1.5, 1, 0, 1, 0, 0, 0, 0, 1, 10, 10, 10 )
+
+[node name="Coin" type="KinematicBody" groups=["coins"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14175, 0 )
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="ColliderCoin" type="CollisionShape" parent="."]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Bitcoin" parent="." instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.06994, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Float"
+anims/Float = SubResource( 2 )
