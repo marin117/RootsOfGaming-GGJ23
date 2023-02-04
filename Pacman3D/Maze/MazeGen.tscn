@@ -1,0 +1,39 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Maze/test_procedural_maze/models/outer_wall1.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://Maze/test_procedural_maze/models/pillar.tres" type="ArrayMesh" id=2]
+[ext_resource path="res://Maze/test_procedural_maze/models/wall3.tres" type="ArrayMesh" id=3]
+[ext_resource path="res://Maze/WallProba.tres" type="CubeMesh" id=4]
+[ext_resource path="res://Maze/Wall1Proba.tres" type="CubeMesh" id=5]
+[ext_resource path="res://Maze/StaticBody.gd" type="Script" id=6]
+[ext_resource path="res://Maze/test_procedural_maze/models/materials/wood.tres" type="Material" id=7]
+[ext_resource path="res://Maze/test_procedural_maze/models/materials/walls1.tres" type="Material" id=8]
+[ext_resource path="res://Maze/test_procedural_maze/models/materials/floor.tres" type="Material" id=9]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 5.20892, 1, 4.34546 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+script = ExtResource( 6 )
+size_x = 10
+size_y = 10
+corridor_width = 5.0
+wall_width = 0.2
+random_seed = 11
+wall_material = ExtResource( 8 )
+floor_material = ExtResource( 9 )
+ceiling_material = ExtResource( 7 )
+wall_models = [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 3 ) ]
+outer_wall_models = [ ExtResource( 1 ) ]
+pillar_model = ExtResource( 2 )
+
+[node name="Config" type="Spatial" parent="StaticBody"]
+
+[node name="open_1" type="CollisionShape" parent="StaticBody/Config"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4063, 0.596782, 24.5644 )
+shape = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.0312015, 0.999513, 0, -0.999513, -0.0312015, 16.7985, 49.8837, 16.217 )
