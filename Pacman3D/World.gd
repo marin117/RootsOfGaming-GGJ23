@@ -36,6 +36,7 @@ func _process(delta):
 
 func spawn_coin(location):
 	var coin = coin_scene.instance()
+	coin.add_to_group('Coins')
 	coin.translate(location)
 	coin.scale_object_local(Vector3(0.5, 0.5, 0.5))
 	add_child(coin)
@@ -49,4 +50,7 @@ func set_random_ghosts_location():
 func set_ghosts_chase():
 	for g in ghosts:
 		g.update_target($Player.global_transform.origin)
-	
+
+func _on_Coin_destroyed():
+	if get_tree().get_nodes_in_group("Coins").size() == 0:
+		get_tree().change_scene("res://End.tscn")

@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="EndScene" type="Spatial"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color( 0.929412, 0.0627451, 0.0627451, 1 )
+margin_right = 1274.0
+margin_bottom = 791.0
+text = "You live to die another day"
