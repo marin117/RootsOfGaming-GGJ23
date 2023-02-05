@@ -19,7 +19,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 0.02, 0.02, 0.02, 0.5, 1, 0, 0, 0, 0, 0, 0, 1, 0.02, 0.015, 0.02, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0.02, 0.02, 0.02 )
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="KinematicBody" groups=["player"]]
 collision_mask = 6
 script = ExtResource( 2 )
 
