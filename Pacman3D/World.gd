@@ -5,6 +5,8 @@ export var num_coins_in = 20
 export var num_ghosts = 1
 
 var is_chasing = false
+var music_position = 0
+var music_position_1 = 0
 
 var num_coins_total = num_coins_in + num_coins_out
 
@@ -75,12 +77,14 @@ func create_ghost():
 
 func set_player_chasing_location():
 	print("pocinjem chase")
+	music_position = $Background.get_playback_position()
 	$Background.stop()
-	$Chasing.play()
+	$Chasing.play(music_position_1)
 	return $Player.global_transform.origin
 
 func random_movement():
 	print("pocinjem random")
-	$Background.play()
+	$Background.play(music_position)
+	music_position_1 = $Chasing.get_playback_position()
 	$Chasing.stop()
 	return set_random_ghosts_location()
