@@ -1,37 +1,34 @@
 extends KinematicBody
 
-var speed = 10
+var speed = 3
 
 var last_dir
+var nav_agent
 
-"""
-0 - left
-1 - right
-2 - forward
-3 - backward
-"""
+var targetNode
+
+var velocity = Vector3.ZERO
+var movement_delta : float
+
 func _ready():
-	last_dir = randi() % 4
-	pass # Replace with function body
+	#last_dir = randi() % 4
+	nav_agent = $NavigationAgent
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	pass
+	update_target(get_parent().get_node("Player").global_transform.origin)
+	var current_position = global_transform.origin
+	var next_location = nav_agent.get_next_location()
+	var dir = global_transform.origin.direction_to(next_location)
+	var new_velocity = dir * 10
+	print(global_transform.origin)
+	print(next_location)
+	nav_agent.set_velocity(new_velocity)
 
-func handle_wall():
-	pass
+func _on_NavigationAgent_velocity_computed(safe_velocity):
+	move_and_slide(safe_velocity, Vector3.UP)
+
+func set_movement_target(movement_target : Vector3):
+	nav_agent.set_target_position(movement_target)
 	
-func chase_player():
-	pass
-	
-func get_new_dir():
-	pass
-
-func _on_RayCast_player_hit():
-	#print("Vidim igraca lovi") # Replace with function body.
-	pass
-
-
-func _on_RayCast_wall_hit():
-	# print("Vidim zid")
-	pass
+func update_target(location):
+	nav_agent.set_target_location(location)

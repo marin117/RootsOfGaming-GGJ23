@@ -1,27 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Ghost/CacodemonBody.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ghost/Ghost.gd" type="Script" id=2]
-[ext_resource path="res://Ghost/GhostVision.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.57459
 height = 0.127996
 
-[node name="Ghost" type="KinematicBody"]
+[node name="Ghost" type="KinematicBody" groups=["enemies"]]
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.463043, 0 )
 shape = SubResource( 1 )
 
-[node name="RayCast" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-enabled = true
-cast_to = Vector3( 0, 0, 5 )
-script = ExtResource( 3 )
-
 [node name="scene" parent="." instance=ExtResource( 1 )]
 
-[connection signal="player_hit" from="RayCast" to="." method="_on_RayCast_player_hit"]
-[connection signal="wall_hit" from="RayCast" to="." method="_on_RayCast_wall_hit"]
+[node name="NavigationAgent" type="NavigationAgent" parent="."]
+agent_height_offset = 0.1
+avoidance_enabled = true
+radius = 50.0
+
+[connection signal="velocity_computed" from="NavigationAgent" to="." method="_on_NavigationAgent_velocity_computed"]
