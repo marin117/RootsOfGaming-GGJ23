@@ -2,7 +2,9 @@ extends Spatial
 
 export var num_coins_out = 50
 export var num_coins_in = 20
-export var num_ghosts = 4
+export var num_ghosts = 1
+
+var is_chasing = false
 
 var num_coins_total = num_coins_in + num_coins_out
 
@@ -21,13 +23,7 @@ func _ready():
 		var coin_location = get_node("CoinSpawnInner/CoinSpawnLocation")
 		coin_location.unit_offset = randi()
 		spawn_coin(coin_location.translation)
-	
-	for i in range(1):
-		var ghost = ghost_scene.instance()
-		ghost.translate(Vector3(0, 0 ,-4))
-		ghost.scale_object_local(Vector3(2,2,2))
-		ghosts.append(ghost)
-		add_child(ghost)
+	create_ghost()
 
 func _process(delta):
 	if Input.is_action_just_released("camera"):
@@ -36,26 +32,43 @@ func _process(delta):
 
 func spawn_coin(location):
 	var coin = coin_scene.instance()
-	#coin.add_to_group('COINS')
 	coin.translate(location)
 	coin.scale_object_local(Vector3(0.5, 0.5, 0.5))
 	add_child(coin)
 
 func set_random_ghosts_location():
-	for g in ghosts:
-		var rand_dir = get_node("CoinSpawnOuter/CoinSpawnLocation")
-		rand_dir.unit_offset = randi()
-		g.update_target(rand_dir.translation)
-
-func set_ghosts_chase():
-	for g in ghosts:
-		g.update_target($Player.global_transform.origin)
+	var rand_dir = get_node("CoinSpawnOuter/CoinSpawnLocation")
+	rand_dir.unit_offset = randi()
+	return rand_dir.translation
 
 func _on_GhostRandomTimer_timeout():
-	set_random_ghosts_location() # Replace with function body.
-
+	for g in ghosts:
+		if not g.is_chasing:
+			g.update_target(set_random_ghosts_location())
 
 func _on_Player_Coin_picked_up():
 	num_coins_total -= 1
 	if num_coins_total == 0:
 		get_tree().change_scene("res://End.tscn")
+
+func _on_GhostChaseTimer_timeout():
+	for g in ghosts:
+		if g.is_chasing:
+			g.update_target($Player.global_transform.origin)
+
+func _on_NewGhostTimer_timeout():
+	$NewGhostTimer.stop()
+	if ghosts.size() == 4:
+		return
+	#create_ghost()
+
+func create_ghost():
+	var ghost = ghost_scene.instance()
+	ghost.translate(Vector3(0, 0 ,-4))
+	ghost.scale_object_local(Vector3(2,2,2))
+	ghosts.append(ghost)
+	ghost.connect("chasing", ghost,
+		"update_target" , [$Player.global_transform.origin])
+	ghost.connect("wandering", ghost,
+		"update_target" , [self.set_random_ghosts_location()])
+	add_child(ghost)

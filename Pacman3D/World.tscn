@@ -66,6 +66,14 @@ transform = Transform( 1, 0, 0, 0, 2.7, 0, 0, 0, 1, 0, -1, 0 )
 wait_time = 3.0
 autostart = true
 
-[connection signal="Coin_picked_up" from="Player" to="." method="_on_Player_Coin_picked_up"]
+[node name="GhostChaseTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="NewGhostTimer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
 [connection signal="destroyed" from="Coin" to="." method="_on_Coin_destroyed"]
 [connection signal="timeout" from="GhostRandomTimer" to="." method="_on_GhostRandomTimer_timeout"]
+[connection signal="timeout" from="GhostChaseTimer" to="." method="_on_GhostChaseTimer_timeout"]
+[connection signal="timeout" from="NewGhostTimer" to="." method="_on_NewGhostTimer_timeout"]

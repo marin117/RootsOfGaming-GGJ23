@@ -10,6 +10,11 @@ var targetNode
 var velocity = Vector3.ZERO
 var movement_delta : float
 
+signal chasing
+signal wandering
+
+var is_chasing = false
+
 func _ready():
 	#last_dir = randi() % 4
 	nav_agent = $NavigationAgent
@@ -30,3 +35,13 @@ func set_movement_target(movement_target : Vector3):
 	
 func update_target(location):
 	nav_agent.set_target_location(location)
+
+func _on_PlayerArea_body_entered(body):
+	if body.is_in_group("player"):
+		is_chasing = true
+		emit_signal("chasing")
+
+func _on_PlayerArea_body_exited(body):
+	if body.is_in_group("player"):
+		is_chasing = false
+		emit_signal("wandering")
