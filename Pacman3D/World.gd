@@ -37,8 +37,6 @@ func spawn_coin(location):
 	add_child(coin)
 
 func set_random_ghosts_location():
-	$Player/Background.stream_paused = false
-	$Player/Chasing.stream_paused = true
 	var rand_dir = get_node("CoinSpawnOuter/CoinSpawnLocation")
 	rand_dir.unit_offset = randi()
 	return rand_dir.translation
@@ -73,10 +71,15 @@ func create_ghost():
 	ghost.connect("chasing", ghost,
 		"update_target" , [self.set_player_chasing_location()])
 	ghost.connect("wandering", ghost,
-		"update_target" , [self.set_random_ghosts_location()])
+		"update_target" , [self.random_movement()])
 	add_child(ghost)
 
 func set_player_chasing_location():
-	$Player/Background.stream_paused = true
-	$Player/Chasing.stream_paused = false
+	$Player/Background.stop()
+	$Player/Chasing.play()
 	return $Player.global_transform.origin
+
+func random_movement():
+	$Player/Background.play()
+	$Player/Chasing.stop()
+	return set_random_ghosts_location()
