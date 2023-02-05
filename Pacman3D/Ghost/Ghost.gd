@@ -28,8 +28,10 @@ func get_new_dir():
 	pass
 
 func _on_RayCast_player_hit():
-	print("Vidim igraca lovi") # Replace with function body.
+	#print("Vidim igraca lovi") # Replace with function body.
+	pass
 
 
 func _on_RayCast_wall_hit():
-	print("Vidim zid")
+	# print("Vidim zid")
+	pass
