@@ -47,7 +47,6 @@ func _on_GhostRandomTimer_timeout():
 			g.update_target(set_random_ghosts_location())
 
 func _on_Player_Coin_picked_up():
-	print(num_coins_total)
 	num_coins_total -= 1
 	if num_coins_total == 0:
 		get_tree().change_scene("res://End.tscn")
