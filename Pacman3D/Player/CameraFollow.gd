@@ -1,8 +1,8 @@
 extends Camera
 
-export var camDistance = 8.0
+export var camDistance = 4.5
 
-export var camHeight = 5.0
+export var camHeight = 2.5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_physics_process(true)
