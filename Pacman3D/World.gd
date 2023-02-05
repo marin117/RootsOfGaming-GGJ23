@@ -20,7 +20,7 @@ func _ready():
 		coin_location.unit_offset = randi()
 		spawn_coin(coin_location.translation)
 	
-	for i in range(3):
+	for i in range(1):
 		var ghost = ghost_scene.instance()
 		ghost.translate(Vector3(0, 0 ,-4))
 		ghost.scale_object_local(Vector3(2,2,2))
@@ -31,8 +31,6 @@ func _process(delta):
 	if Input.is_action_just_released("camera"):
 		$Camera.current = !$Camera.current
 		$Player.switch_movement(!$Camera.current)
-	set_ghosts_chase()
-
 
 func spawn_coin(location):
 	var coin = coin_scene.instance()
@@ -54,3 +52,6 @@ func set_ghosts_chase():
 func _on_Coin_destroyed():
 	if get_tree().get_nodes_in_group("Coins").size() == 0:
 		get_tree().change_scene("res://End.tscn")
+
+func _on_GhostRandomTimer_timeout():
+	set_random_ghosts_location() # Replace with function body.

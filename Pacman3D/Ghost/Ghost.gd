@@ -1,6 +1,6 @@
 extends KinematicBody
 
-var speed = 3
+var speed = 4
 
 var last_dir
 var nav_agent
@@ -15,13 +15,11 @@ func _ready():
 	nav_agent = $NavigationAgent
 	
 func _physics_process(delta):
-	update_target(get_parent().get_node("Player").global_transform.origin)
+	#update_target(get_parent().get_node("Player").global_transform.origin)
 	var current_position = global_transform.origin
 	var next_location = nav_agent.get_next_location()
 	var dir = global_transform.origin.direction_to(next_location)
-	var new_velocity = dir * 10
-	print(global_transform.origin)
-	print(next_location)
+	var new_velocity = dir * speed
 	nav_agent.set_velocity(new_velocity)
 
 func _on_NavigationAgent_velocity_computed(safe_velocity):

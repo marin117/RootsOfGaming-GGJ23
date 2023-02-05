@@ -67,5 +67,6 @@ func handle_collision():
 		var obj = get_slide_collision(i)
 		if obj.collider.is_in_group("coins"):
 			var coin = obj.collider
-
 			coin.pick_up()
+		elif obj.collider.is_in_group("enemies"):
+			queue_free()

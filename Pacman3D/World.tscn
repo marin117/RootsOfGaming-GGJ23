@@ -62,4 +62,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.9521, 0 )
 [node name="Maze" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 2.7, 0, 0, 0, 1, 0, -1, 0 )
 
+[node name="GhostRandomTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [connection signal="destroyed" from="Coin" to="." method="_on_Coin_destroyed"]
+[connection signal="timeout" from="GhostRandomTimer" to="." method="_on_GhostRandomTimer_timeout"]
