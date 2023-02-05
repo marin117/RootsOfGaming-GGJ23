@@ -37,6 +37,8 @@ func spawn_coin(location):
 	add_child(coin)
 
 func set_random_ghosts_location():
+	$Player/Background.stream_paused = false
+	$Player/Chasing.stream_paused = true
 	var rand_dir = get_node("CoinSpawnOuter/CoinSpawnLocation")
 	rand_dir.unit_offset = randi()
 	return rand_dir.translation
@@ -47,6 +49,7 @@ func _on_GhostRandomTimer_timeout():
 			g.update_target(set_random_ghosts_location())
 
 func _on_Player_Coin_picked_up():
+	print(num_coins_total)
 	num_coins_total -= 1
 	if num_coins_total == 0:
 		get_tree().change_scene("res://End.tscn")
@@ -68,7 +71,12 @@ func create_ghost():
 	ghost.scale_object_local(Vector3(2,2,2))
 	ghosts.append(ghost)
 	ghost.connect("chasing", ghost,
-		"update_target" , [$Player.global_transform.origin])
+		"update_target" , [self.set_player_chasing_location()])
 	ghost.connect("wandering", ghost,
 		"update_target" , [self.set_random_ghosts_location()])
 	add_child(ghost)
+
+func set_player_chasing_location():
+	$Player/Background.stream_paused = true
+	$Player/Chasing.stream_paused = false
+	return $Player.global_transform.origin
