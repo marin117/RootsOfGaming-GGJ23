@@ -15,7 +15,7 @@ ambient_light_energy = 0.05
 script = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
+transform = Transform( -0.699975, 0, -0.00587651, 0, 0.7, 0, 0.00587651, 0, -0.699975, 24.2688, 0, 29.1474 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
@@ -27,7 +27,7 @@ transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 79.144
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.390893, 1.84937, 10.9999 )
 
 [node name="Ghost" parent="." instance=ExtResource( 1 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -5.08226 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -2.72311 )
 
 [node name="Level" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, 0, -1, 0 )
