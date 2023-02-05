@@ -23,7 +23,7 @@ func _ready():
 		var coin_location = get_node("CoinSpawnInner/CoinSpawnLocation")
 		coin_location.unit_offset = randi()
 		spawn_coin(coin_location.translation)
-	create_ghost()
+	ghosts.append($Ghost)
 
 func _process(delta):
 	if Input.is_action_just_released("camera"):
@@ -74,11 +74,13 @@ func create_ghost():
 	add_child(ghost)
 
 func set_player_chasing_location():
-	$Player/Background.stop()
-	$Player/Chasing.play()
+	print("pocinjem chase")
+	$Background.stop()
+	$Chasing.play()
 	return $Player.global_transform.origin
 
 func random_movement():
-	$Player/Background.play()
-	$Player/Chasing.stop()
+	print("pocinjem random")
+	$Background.play()
+	$Chasing.stop()
 	return set_random_ghosts_location()
