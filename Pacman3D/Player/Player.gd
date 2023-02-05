@@ -1,5 +1,7 @@
 extends KinematicBody
 
+signal Coin_picked_up
+
 var GRAVITY = -9.81
 
 var speed = 8
@@ -68,5 +70,7 @@ func handle_collision():
 		if obj.collider.is_in_group("coins"):
 			var coin = obj.collider
 			coin.pick_up()
+			emit_signal("Coin_picked_up")
 		elif obj.collider.is_in_group("enemies"):
+			get_tree().change_scene("res://Loose.tscn")
 			queue_free()
