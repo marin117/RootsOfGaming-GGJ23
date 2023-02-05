@@ -1,6 +1,6 @@
 extends KinematicBody
 
-var speed = 4
+var speed = 5
 
 var last_dir
 var nav_agent
