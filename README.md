@@ -1,40 +1,29 @@
 # GameJam23
-![image](https://user-images.githubusercontent.com/22923478/216443184-1bf73073-2bbd-49d8-bd3d-2a7187026326.png)
-
-## Resources
-
-- [Godot](https://godotengine.org/)
-- [Sketchfab](https://sketchfab.com/)
-- [Itch.io assets](https://itch.io/game-assets/free)
-- [Audacity](https://www.audacityteam.org/)
-- [Blender](https://www.elipso.hr/mali-kucanski/blenderi/)
-- [Most important link](https://www.youtube.com/watch?v=oVWEb-At8yc&list=PLA_zjX3swAf5wjtMwyNG53rXmw7wcGIJS)
 
 ## Theme
 
 **ROOTS**
 
-## Game idea
+## Gameplay
 
-Create 3D Pacman. Why? Because those are roots of gaming. 
+3D pacman in Doom maze chased by Cacodemon picking up Super Mario coins.
+* Roots Of Gaming *
+
+## Requirements
+
+- [Godot](https://godotengine.org/)
+
+## Resources
+
+- [Sketchfab](https://sketchfab.com/)
+- [Itch.io assets](https://itch.io/game-assets/free)
+
 
 ### Assets
 
 - [Player](https://sketchfab.com/3d-models/pacman-animated-e5e8dfb614da4fa69182f252fa4274a8)
-- [Enemy](https://sketchfab.com/3d-models/inky-animated-7c2bb227295b419aa6ee13dc56dc49cb)
-- [Coins](https://sketchfab.com/3d-models/bitcoin-gold-coin-aa32084f0d4043eda8b044668e53a062)
+- [Enemy](https://sketchfab.com/3d-models/cacodemon-low-poly-7228d01592ad4e369f9e21069a6e8cb9)
 - Pickups:
-    1. [Wood](https://sketchfab.com/3d-models/mystery-box-0c4baee1767749a08125a003e8b635f8)
-    2. [Sci-fi](https://sketchfab.com/3d-models/sci-fi-mystery-box-8f9f7028a9fb411fb9d0220d9f20b1f4)    
-    3. [COD1](https://sketchfab.com/3d-models/animation-black-ops-3-custom-mystery-box-d2acaabb2e03421297bc00c9cdecaec8)
-    4. [COD2](https://sketchfab.com/3d-models/mystery-box-call-of-duty-bfc78b2ceae145a08a3e23a12198d649)
+    - [Coins](https://sketchfab.com/3d-models/coin-super-mario-bros-dbf9945cc49340c0a50f57338a3786ab)
 - Floor/Wall:
-    1. [Stone](https://sketchfab.com/3d-models/tiles-ad04de1bd11041c2a9083a8ff5fb1b5d)
-    2. [Sci-fi](https://sketchfab.com/3d-models/sci-fi-modular-floor-tiles-d2846d9424b646208161301b1ba2d20e)
-
-### Logic
-
-- Pick up coins
-- Evade enemies
-- Pickups for destroying enemies
-- Exit from level after picking up all coins
+    - [Doom textures](https://www.spriters-resource.com/pc_computer/doomdoomii/)

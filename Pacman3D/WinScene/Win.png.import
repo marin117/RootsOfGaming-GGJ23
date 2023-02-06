@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Win.png-84e8d0b992cee2138d3df0d11dc637c7.stex"
+path="res://.import/Win.png-3effe5d7422694346e488dc3a7e72b0a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Win.png"
-dest_files=[ "res://.import/Win.png-84e8d0b992cee2138d3df0d11dc637c7.stex" ]
+source_file="res://WinScene/Win.png"
+dest_files=[ "res://.import/Win.png-3effe5d7422694346e488dc3a7e72b0a.stex" ]
 
 [params]
 
