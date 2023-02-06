@@ -48,10 +48,10 @@ func _on_GhostRandomTimer_timeout():
 		if not g.is_chasing:
 			g.update_target(set_random_ghosts_location())
 
-func _on_Player_Coin_picked_up():
+func _on_Player_coin_pick():
 	num_coins_total -= 1
 	if num_coins_total == 0:
-		get_tree().change_scene("res://End.tscn")
+		get_tree().change_scene("res://WinScene/End.tscn")
 
 func _on_GhostChaseTimer_timeout():
 	for g in ghosts:
@@ -76,15 +76,8 @@ func create_ghost():
 	add_child(ghost)
 
 func set_player_chasing_location():
-	print("pocinjem chase")
-	music_position = $Background.get_playback_position()
-	$Background.stop()
-	$Chasing.play(music_position_1)
 	return $Player.global_transform.origin
 
 func random_movement():
 	print("pocinjem random")
-	$Background.play(music_position)
-	music_position_1 = $Chasing.get_playback_position()
-	$Chasing.stop()
 	return set_random_ghosts_location()

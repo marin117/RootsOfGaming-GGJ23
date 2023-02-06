@@ -14,6 +14,10 @@ config/name="Pacman3D"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+MusicPlayer="*res://MusicPlayer/MusicPlayer.tscn"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
@@ -51,6 +55,8 @@ camera={
 3d_physics/layer_1="player"
 3d_physics/layer_2="enemies"
 3d_physics/layer_3="coins"
+3d_physics/layer_4="player_area"
+3d_physics/layer_5="enemy_area"
 
 [physics]
 

@@ -1,6 +1,6 @@
 extends KinematicBody
 
-signal Coin_picked_up
+signal coin_pick
 
 var GRAVITY = -9.81
 
@@ -13,13 +13,11 @@ var moving_enabled = true
 var camGlobal
 
 func _ready():
-
 	pass
 
 func _physics_process(delta):
 	handle_collision()
 	move_and_rotate(delta)
-	#$Pivot/CameraFollow.current = false
 
 func move_direction():
 	var dir = Vector3.ZERO
@@ -70,7 +68,9 @@ func handle_collision():
 		if obj.collider.is_in_group("coins"):
 			var coin = obj.collider
 			coin.pick_up()
-			emit_signal("Coin_picked_up")
-		elif obj.collider.is_in_group("enemies"):
-			get_tree().change_scene("res://Loose.tscn")
-			queue_free()
+			emit_signal("coin_pick")
+
+func _on_EnemyArea_body_entered(body):
+	print("tu sam")
+	if body.is_in_group("enemies"):
+		queue_free()

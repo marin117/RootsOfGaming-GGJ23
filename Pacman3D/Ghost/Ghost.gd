@@ -29,6 +29,7 @@ func _physics_process(delta):
 
 func _on_NavigationAgent_velocity_computed(safe_velocity):
 	move_and_slide(safe_velocity, Vector3.UP)
+	look_at(transform.origin + safe_velocity, Vector3.UP)
 
 func set_movement_target(movement_target : Vector3):
 	nav_agent.set_target_position(movement_target)
