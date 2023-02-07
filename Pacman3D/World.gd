@@ -36,6 +36,7 @@ func spawn_coin(location):
 	var coin = coin_scene.instance()
 	coin.translate(location)
 	coin.scale_object_local(Vector3(0.5, 0.5, 0.5))
+	coin.connect("destroyed", self, "_on_Player_coin_pick")
 	add_child(coin)
 
 func set_random_ghosts_location():

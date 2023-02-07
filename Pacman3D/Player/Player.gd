@@ -65,10 +65,6 @@ func switch_movement(enabled):
 func handle_collision():
 	for i in range(get_slide_count()):
 		var obj = get_slide_collision(i)
-		if obj.collider.is_in_group("coins"):
-			var coin = obj.collider
-			coin.pick_up()
-			emit_signal("coin_pick")
 
 func _on_EnemyArea_body_entered(body):
 	print("tu sam")

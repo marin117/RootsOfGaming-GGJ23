@@ -21,9 +21,7 @@ shape = SubResource( 1 )
 transform = Transform( -0.002, 0, -1.74846e-10, 0, 0.002, 0, 1.74846e-10, 0, -0.002, 0, 0, 0 )
 
 [node name="NavigationAgent" type="NavigationAgent" parent="."]
-agent_height_offset = 0.1
 avoidance_enabled = true
-radius = 50.0
 
 [node name="PlayerArea" type="Area" parent="."]
 transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
