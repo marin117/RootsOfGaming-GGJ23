@@ -57,6 +57,7 @@ camera={
 3d_physics/layer_3="coins"
 3d_physics/layer_4="player_area"
 3d_physics/layer_5="enemy_area"
+3d_physics/layer_32="walls"
 
 [physics]
 

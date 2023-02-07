@@ -1,6 +1,7 @@
 extends KinematicBody
 
 signal coin_pick
+signal player_dead
 
 var GRAVITY = -9.81
 
@@ -67,6 +68,6 @@ func handle_collision():
 		var obj = get_slide_collision(i)
 
 func _on_EnemyArea_body_entered(body):
-	print("tu sam")
 	if body.is_in_group("enemies"):
+		emit_signal("player_dead")
 		queue_free()

@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/scene.gltf-66728b11892aad1422d7fe493a0f5914.scn"
+path="res://.import/scene.gltf-0f9d72fb55a8a6efd33eda0a7b06401f.scn"
 
 [deps]
 
-source_file="res://Ghost/Cacademon/scene.gltf"
-dest_files=[ "res://.import/scene.gltf-66728b11892aad1422d7fe493a0f5914.scn" ]
+source_file="res://Ghost/Cacodemon/scene.gltf"
+dest_files=[ "res://.import/scene.gltf-0f9d72fb55a8a6efd33eda0a7b06401f.scn" ]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Caco_baseColor.png-53e1be55557f80ea4cf450c9a558db75.s3tc.stex"
-path.etc2="res://.import/Caco_baseColor.png-53e1be55557f80ea4cf450c9a558db75.etc2.stex"
+path.s3tc="res://.import/Caco_baseColor.png-982961a7b2c6f9fd81a2fa45f72ede6c.s3tc.stex"
+path.etc2="res://.import/Caco_baseColor.png-982961a7b2c6f9fd81a2fa45f72ede6c.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Ghost/Cacademon/textures/Caco_baseColor.png"
-dest_files=[ "res://.import/Caco_baseColor.png-53e1be55557f80ea4cf450c9a558db75.s3tc.stex", "res://.import/Caco_baseColor.png-53e1be55557f80ea4cf450c9a558db75.etc2.stex" ]
+source_file="res://Ghost/Cacodemon/textures/Caco_baseColor.png"
+dest_files=[ "res://.import/Caco_baseColor.png-982961a7b2c6f9fd81a2fa45f72ede6c.s3tc.stex", "res://.import/Caco_baseColor.png-982961a7b2c6f9fd81a2fa45f72ede6c.etc2.stex" ]
 
 [params]
 

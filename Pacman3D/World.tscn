@@ -58,28 +58,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.9521, 0 )
 [node name="Maze" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 2.7, 0, 0, 0, 1, 0, -1, 0 )
 
-[node name="GhostRandomTimer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
-
-[node name="GhostChaseTimer" type="Timer" parent="."]
-autostart = true
-
-[node name="NewGhostTimer" type="Timer" parent="."]
-wait_time = 8.0
-autostart = true
-
 [node name="Ghost" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1.99993, 0, -0.01679, 0, 2, 0, 0.01679, 0, -1.99993, -0.181, 1, -4.93431 )
-
-[node name="Ghost2" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1.99993, 0, -0.01679, 0, 2, 0, 0.01679, 0, -1.99993, 8.95133, 1, -4.93431 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 14.7674, 1, 12.8144 )
 
 [connection signal="coin_pick" from="Player" to="." method="_on_Player_coin_pick"]
-[connection signal="timeout" from="GhostRandomTimer" to="." method="_on_GhostRandomTimer_timeout"]
-[connection signal="timeout" from="GhostChaseTimer" to="." method="_on_GhostChaseTimer_timeout"]
-[connection signal="timeout" from="NewGhostTimer" to="." method="_on_NewGhostTimer_timeout"]
-[connection signal="chasing" from="Ghost" to="." method="set_player_chasing_location"]
-[connection signal="wandering" from="Ghost" to="." method="random_movement"]
-[connection signal="chasing" from="Ghost2" to="." method="set_player_chasing_location"]
-[connection signal="wandering" from="Ghost2" to="." method="random_movement"]
