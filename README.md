@@ -7,7 +7,8 @@
 ## Gameplay
 
 3D pacman in Doom maze chased by Cacodemon picking up Super Mario coins.
-* Roots Of Gaming *
+
+**Roots Of Gaming**
 
 ## Requirements
 
