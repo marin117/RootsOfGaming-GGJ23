@@ -8,7 +8,7 @@ func _ready():
 	set_physics_process(true)
 	set_as_toplevel(true)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var target = get_parent().global_transform.origin
 	var pos = global_transform.origin
 	

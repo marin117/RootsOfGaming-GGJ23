@@ -4,27 +4,21 @@ var speed = 5
 
 var last_dir
 var nav_agent
-var dir_ray
-var targetNode
 
 var velocity = Vector3.ZERO
-var movement_delta : float
 
-signal chasing
-signal wandering
-
-var is_chasing = false
+var state
+var state_factory
 
 func _ready():
 	#last_dir = randi() % 4
 	nav_agent = $NavigationAgent
-	dir_ray = $DirectionRay
+	state_factory = GhostStateFactory.new()
+	change_state("wander")
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	#update_target(get_parent().get_node("Player").global_transform.origin)
-	if nav_agent.is_navigation_finished():
-		set_random_pos()
-	var current_position = global_transform.origin
+	state.get_new_position()
 	var next_location = nav_agent.get_next_location()
 	var dir = global_transform.origin.direction_to(next_location)
 	var new_velocity = dir * speed
@@ -33,25 +27,29 @@ func _physics_process(delta):
 
 func _on_NavigationAgent_velocity_computed(safe_velocity):
 	move_and_slide(safe_velocity, Vector3.UP)
-
-func set_movement_target(movement_target : Vector3):
-	nav_agent.set_target_position(movement_target)
 	
 func update_target(location):
 	nav_agent.set_target_location(location)
 
 func _on_PlayerArea_body_entered(body):
 	if body.is_in_group("player"):
-		#is_chasing = true
-		emit_signal("chasing")
+		print("chase")
+		change_state("chase")
 
 func _on_PlayerArea_body_exited(body):
 	if body.is_in_group("player"):
-		#is_chasing = false
-		emit_signal("wandering")
+		print("wander")
+		change_state("wander")
+		
+func change_state(new_state):
+	if state != null:
+		state.queue_free()
+	state = state_factory.get_state(new_state).new()
+	if new_state == "chase":
+		state.connect("query_position", self, "get_player_position")
+	state.setup(funcref(self, "change_state"), nav_agent, self)
+	state.name = "current_state"
+	call_deferred("add_child", state)
 
-func set_random_pos():
-	var radius = 10
-	var random_position = Vector3(rand_range(-radius, radius), 0, 
-		rand_range(-radius, radius))
-	update_target(random_position)
+func get_player_position():
+	update_target(get_parent().get_node("Player").global_transform.origin)

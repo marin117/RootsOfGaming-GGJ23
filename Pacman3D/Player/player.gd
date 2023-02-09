@@ -1,6 +1,5 @@
 extends KinematicBody
 
-signal coin_pick
 signal player_dead
 
 var GRAVITY = -9.81
@@ -64,8 +63,7 @@ func switch_movement(enabled):
 	$Pivot/CameraFollow.current = moving_enabled
 	
 func handle_collision():
-	for i in range(get_slide_count()):
-		var obj = get_slide_collision(i)
+	""" Handling collisions"""
 
 func _on_EnemyArea_body_entered(body):
 	if body.is_in_group("enemies"):

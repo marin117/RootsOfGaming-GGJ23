@@ -6,7 +6,7 @@ func pick_up():
 	emit_signal("destroyed")
 	queue_free()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	rotate_y(0.05)
 
 

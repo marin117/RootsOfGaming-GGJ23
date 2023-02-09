@@ -8,6 +8,34 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "GhostState",
+"class": "GhostChase",
+"language": "GDScript",
+"path": "res://Ghost/States/ghost_chase.gd"
+}, {
+"base": "Node",
+"class": "GhostState",
+"language": "GDScript",
+"path": "res://Ghost/States/ghost_state.gd"
+}, {
+"base": "Node",
+"class": "GhostStateFactory",
+"language": "GDScript",
+"path": "res://Ghost/States/ghost_state_factory.gd"
+}, {
+"base": "GhostState",
+"class": "GhostWander",
+"language": "GDScript",
+"path": "res://Ghost/States/ghost_wander.gd"
+} ]
+_global_script_class_icons={
+"GhostChase": "",
+"GhostState": "",
+"GhostStateFactory": "",
+"GhostWander": ""
+}
+
 [application]
 
 config/name="Pacman3D"

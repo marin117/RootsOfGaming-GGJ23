@@ -8,6 +8,8 @@ var is_chasing = false
 var music_position = 0
 var music_position_1 = 0
 
+var player_pos_func
+
 var num_coins_total = num_coins_in + num_coins_out
 
 export(PackedScene) var coin_scene = preload("res://Coin/Coin.tscn")
@@ -16,18 +18,19 @@ var ghosts = []
 
 func _ready():
 	randomize()
-	for i in range(num_coins_out):
+	player_pos_func = funcref(self, "get_player_location")
+	for _i in range(num_coins_out):
 		var coin_location = get_node("CoinSpawnOuter/CoinSpawnLocation")
 		coin_location.unit_offset = randi()
 		spawn_coin(coin_location.translation)
 	
-	for i in range(num_coins_in):
+	for _i in range(num_coins_in):
 		var coin_location = get_node("CoinSpawnInner/CoinSpawnLocation")
 		coin_location.unit_offset = randi()
 		spawn_coin(coin_location.translation)
-	#spawn_ghost()
+	spawn_ghost()
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_released("camera"):
 		$Camera.current = !$Camera.current
 		$Player.switch_movement(!$Camera.current)
@@ -49,11 +52,4 @@ func spawn_ghost():
 	ghost.translate(Vector3(0, 0, -4))
 	ghost.scale_object_local(Vector3(2,2,2))
 	ghosts.append(ghost)
-#	ghost.connect("chasing", ghost,
-#		"update_target" , [self.set_player_chasing_location()])
-#	ghost.connect("wandering", ghost,
-#		"update_target" , [self.random_movement()])
 	add_child(ghost)
-
-func set_player_chasing_location():
-	return $Player.global_transform.origin
