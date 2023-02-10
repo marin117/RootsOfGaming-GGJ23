@@ -28,4 +28,4 @@
 - Pickups:
     - [Coins](https://sketchfab.com/3d-models/coin-super-mario-bros-dbf9945cc49340c0a50f57338a3786ab)
 - Floor/Wall:
-    - [Doom textures](https://www.spriters-resource.com/pc_computer/doomdoomii/)
+    - [Textures](https://little-martian.itch.io/retro-texture-pack)
