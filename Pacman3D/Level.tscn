@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://world.gd" type="Script" id=3]
-[ext_resource path="res://Coin/Coin.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Maze/Maze.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Maze/Maze.tscn" type="PackedScene" id=1]
+[ext_resource path="res://level.gd" type="Script" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Environment" id=2]
 background_mode = 1
@@ -24,9 +23,9 @@ _data = {
 
 [node name="World" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1769, 0 )
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]
 transform = Transform( -0.699975, 0, -0.00587651, 0, 0.7, 0, 0.00587651, 0, -0.699975, 24.2688, 0, 29.1474 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -34,10 +33,6 @@ environment = SubResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 79.1449, 0 )
-
-[node name="Coin" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -21.1346, 1, 28.6633 )
-visible = false
 
 [node name="CoinSpawnOuter" type="Path" parent="."]
 curve = SubResource( 3 )
@@ -54,5 +49,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.80952, 0, 21.5156 )
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.9521, 0 )
 
-[node name="Maze" parent="." instance=ExtResource( 5 )]
+[node name="Maze" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 2.7, 0, 0, 0, 1, 0, -1, 0 )
+
+[connection signal="player_dead" from="Player" to="." method="_on_Player_player_dead"]

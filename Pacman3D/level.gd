@@ -45,7 +45,7 @@ func spawn_coin(location):
 func _on_Player_coin_pick():
 	num_coins_total -= 1
 	if num_coins_total == 0:
-		get_tree().change_scene("res://WinScene/End.tscn")
+		get_tree().change_scene("res://Win/WinScene.tscn")
 
 func spawn_ghost():
 	var ghost = ghost_scene.instance()
@@ -53,3 +53,7 @@ func spawn_ghost():
 	ghost.scale_object_local(Vector3(2,2,2))
 	ghosts.append(ghost)
 	add_child(ghost)
+
+
+func _on_Player_player_dead():
+	get_tree().change_scene("res://Lose/LoseScreen.tscn")
