@@ -49,8 +49,8 @@ func _on_Player_coin_pick():
 
 func spawn_ghost():
 	var ghost = ghost_scene.instance()
-	ghost.translate(Vector3(0, 0, -4))
-	ghost.scale_object_local(Vector3(2,2,2))
+	ghost.translate(Vector3(0, 2.5, -4))
+	ghost.scale_object_local(Vector3(1.7,1.7,1.7))
 	ghosts.append(ghost)
 	add_child(ghost)
 
