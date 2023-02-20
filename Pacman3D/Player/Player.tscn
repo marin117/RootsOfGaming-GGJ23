@@ -39,20 +39,22 @@ anims/Eating = SubResource( 2 )
 
 [node name="Pivot" type="Spatial" parent="."]
 
-[node name="CameraFollow" type="Camera" parent="Pivot"]
-transform = Transform( -1, 4.37114e-08, -7.57103e-08, 0, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866025, 0, 6, -7 )
-fov = 100.0
-script = ExtResource( 3 )
-
-[node name="SpotLight" type="SpotLight" parent="Pivot"]
+[node name="TopLight" type="SpotLight" parent="Pivot"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 28, 0 )
 spot_range = 39.9897
 spot_angle = 36.3329
 
-[node name="SpotLight2" type="SpotLight" parent="Pivot"]
+[node name="FrontLight" type="SpotLight" parent="Pivot"]
 transform = Transform( 1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 1, 0 )
 spot_range = 21.0308
 spot_angle = 36.3329
+
+[node name="CameraFollow" type="ClippedCamera" parent="Pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -7 )
+current = true
+fov = 100.0
+collision_mask = 2147483648
+script = ExtResource( 3 )
 
 [node name="EnemyArea" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028, 2.03338, -0.166 )
