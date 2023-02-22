@@ -35,12 +35,14 @@ environment = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 79.1449, 0 )
 
 [node name="CoinSpawnOuter" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.61902, 2.02287 )
 curve = SubResource( 3 )
 
 [node name="CoinSpawnLocation" type="PathFollow" parent="CoinSpawnOuter"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0859, 0, 27.2808 )
 
 [node name="CoinSpawnInner" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.32725, 0 )
 curve = SubResource( 4 )
 
 [node name="CoinSpawnLocation" type="PathFollow" parent="CoinSpawnInner"]
@@ -51,6 +53,5 @@ transform = Transform( 1, 0, 0, 0, 0.126303, 0.991992, 0, -0.991992, 0.126303, 0
 visible = false
 
 [node name="Maze" parent="." instance=ExtResource( 3 )]
-enabled = true
 
 [connection signal="player_dead" from="Player" to="." method="_on_Player_player_dead"]
