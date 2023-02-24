@@ -21,4 +21,9 @@ visible = false
 [node name="Level" parent="." instance=ExtResource( 3 )]
 num_coins = 60
 
+[node name="GhostSpawnTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [connection signal="player_dead" from="Player" to="." method="_on_Player_player_dead"]
+[connection signal="timeout" from="GhostSpawnTimer" to="." method="_on_GhostSpawnTimer_timeout"]

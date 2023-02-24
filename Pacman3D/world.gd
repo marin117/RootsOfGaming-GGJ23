@@ -27,3 +27,8 @@ func spawn_ghost():
 
 func _on_Player_player_dead():
 	get_tree().change_scene("res://Lose/LoseScreen.tscn")
+
+
+func _on_GhostSpawnTimer_timeout():
+	if ghosts.size() < 4:
+		spawn_ghost()
