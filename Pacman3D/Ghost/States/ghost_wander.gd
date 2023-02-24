@@ -7,7 +7,7 @@ func get_new_position():
 		.update_target(get_random_pos())
 	
 func get_random_pos():
-	var radius = 10
+	var radius = 30
 	var random_position = Vector3(rand_range(-radius, radius), 0, 
 		rand_range(-radius, radius))
 	return random_position
