@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://art/Music/ES_Forgotten Castle - Ludvig Moulin.wav" type="AudioStream" id=1]
+[ext_resource path="res://art/Music/DavidKBD - Eternity Pack - 10 - Rotten Offal - loop.ogg" type="AudioStream" id=1]
 
 [node name="MusicPlayer" type="AudioStreamPlayer3D"]
 stream = ExtResource( 1 )
-unit_db = 20.0
+unit_db = 30.0
 autoplay = true
