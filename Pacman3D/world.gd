@@ -23,12 +23,19 @@ func spawn_ghost():
 	ghost.translate($Level.ghost_spawn_location)
 	ghost.scale_object_local(Vector3(1.7,1.7,1.7))
 	ghosts.append(ghost)
+	ghost.connect("ghost_chasing", self, "add_chasing_ghost", [ghost])
+	ghost.connect("ghost_wandering", self, "remove_chasing_ghost", [ghost])
 	add_child(ghost)
 
 func _on_Player_player_dead():
 	get_tree().change_scene("res://Lose/LoseScreen.tscn")
 
-
 func _on_GhostSpawnTimer_timeout():
 	if ghosts.size() < 4:
 		spawn_ghost()
+
+func add_chasing_ghost(ghost):
+	$Level.level.add_chasing_ghost(ghost)
+
+func remove_chasing_ghost(ghost):
+	$Level.level.remove_chasing_ghost(ghost)
