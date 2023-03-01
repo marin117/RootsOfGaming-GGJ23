@@ -10,6 +10,9 @@ var velocity = Vector3.ZERO
 var state
 var state_factory
 
+signal ghost_chasing
+signal ghost_wandering
+
 func _ready():
 	#last_dir = randi() % 4
 	nav_agent = $NavigationAgent
@@ -33,13 +36,11 @@ func update_target(location):
 
 func _on_PlayerArea_body_entered(body):
 	if body.is_in_group("player"):
-		print("chase")
-		change_state("chase")
+		set_chasing()
 
 func _on_PlayerArea_body_exited(body):
 	if body.is_in_group("player"):
-		print("wander")
-		change_state("wander")
+		set_wandering()
 		
 func change_state(new_state):
 	if state != null:
@@ -53,3 +54,11 @@ func change_state(new_state):
 
 func get_player_position():
 	update_target(get_parent().get_node("Player").global_transform.origin)
+
+func set_chasing():
+	change_state("chase")
+	emit_signal("ghost_chasing")
+
+func set_wandering():
+	change_state("wander")
+	emit_signal("ghost_wandering")
