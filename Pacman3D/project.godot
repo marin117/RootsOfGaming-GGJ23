@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "BaseMaze",
 "language": "GDScript",
-"path": "res://Maze/base_maze.gd"
+"path": "res://Level/base_maze.gd"
 }, {
 "base": "GhostState",
 "class": "GhostChase",
@@ -33,13 +33,43 @@ _global_script_classes=[ {
 "class": "GhostWander",
 "language": "GDScript",
 "path": "res://Ghost/States/ghost_wander.gd"
+}, {
+"base": "Node",
+"class": "Level",
+"language": "GDScript",
+"path": "res://Level/level.gd"
+}, {
+"base": "LevelState",
+"class": "LevelDanger",
+"language": "GDScript",
+"path": "res://Level/LevelStates/level_danger.gd"
+}, {
+"base": "LevelState",
+"class": "LevelNormal",
+"language": "GDScript",
+"path": "res://Level/LevelStates/level_normal.gd"
+}, {
+"base": "Node",
+"class": "LevelState",
+"language": "GDScript",
+"path": "res://Level/LevelStates/level_state.gd"
+}, {
+"base": "Node",
+"class": "LevelStateFactory",
+"language": "GDScript",
+"path": "res://Level/LevelStates/level_state_factory.gd"
 } ]
 _global_script_class_icons={
 "BaseMaze": "",
 "GhostChase": "",
 "GhostState": "",
 "GhostStateFactory": "",
-"GhostWander": ""
+"GhostWander": "",
+"Level": "",
+"LevelDanger": "",
+"LevelNormal": "",
+"LevelState": "",
+"LevelStateFactory": ""
 }
 
 [application]
